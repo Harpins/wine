@@ -1,3 +1,11 @@
-env/
-.vscode/
-
+*.env
+*/__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.vscode
+*.idea
+*Thumbs.db
+*.DS_Store
+*pyproject.toml
+*poetry.lock
