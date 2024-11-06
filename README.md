@@ -10,6 +10,13 @@
 ```
 pip install -r requirements.txt
 ```
+- Для работы кода требуются входные данные в виде таблицы Excel.
+- Пример входных данных приведен в `example.xlsx`
+  
+В `main.py` (45 строка) методу `.read_excel()` необходимо передать в качестве агрументов путь к файлу с входными данными и название листа на котором расположена таблица:
+```
+wines_table = pandas.read_excel('your_excel_file.xlsx', sheet_name='Sheet1', na_values=[N/A', 'NA'], keep_default_na=False)
+```
 - Запустите сайт командой `python3 main.py`
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
