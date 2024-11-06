@@ -10,14 +10,16 @@
 ```pycon
 pip install -r requirements.txt
 ```
-- Для работы кода требуются входные данные в виде таблицы Excel.
-- Пример входных данных приведен в `example.xlsx`
-  
-В `main.py:45` методу `.read_excel()` необходимо передать в качестве агрументов путь к файлу с входными данными и название листа на котором расположена таблица:
-```python
-wines_table = pandas.read_excel('your_excel_file.xlsx', sheet_name='Sheet1', na_values=[N/A', 'NA'], keep_default_na=False)
+- Запустите сайт консольной командой, установите входные параметры:
+```pycon
+python main.py -p file://localhost/path/to/table.xlsx -s Sheet1 -y 1920
 ```
-- Запустите сайт командой `python3 main.py`
+где
+```pycon
+-p  Путь к xlsx файлу, default='wine.xlsx'
+-s  Название листа с таблицей, default='Sheet1'
+-y  Год основания винодельни, default=1920
+```
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 ## Цели проекта
