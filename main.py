@@ -42,7 +42,7 @@ def main():
 
     years_passed = count_passed_years(FOUNDATION_YEAR)
 
-    wines_table = pandas.read_excel('wine.xlsx', sheet_name='Sheet1', na_values=[
+    wines_table = pandas.read_excel('your_excel_file.xlsx', sheet_name='Sheet1', na_values=[
                                     'N/A', 'NA'], keep_default_na=False)
     wines_list = wines_table.to_dict(orient='records')
     groupped_wines = group_wines(wines_list)
