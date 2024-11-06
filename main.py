@@ -32,17 +32,35 @@ def group_wines(wines_list):
             if wine['wine_category'] == category:
                 groupped_wines[category].append(wine)
     return groupped_wines
+    
 
 def create_parser():
     parser = argparse.ArgumentParser(
         description='''Установите входные параметры:
         -p  Путь к xlsx файлу, default='wine.xlsx'
         -s  Название листа с таблицей, default='Sheet1'
-        -y  Год основания винодельни, default=1920
-        ''')
-    parser.add_argument('-p','--table_path', help='Путь к xlsx файлу', type=str, default='wine.xlsx')
-    parser.add_argument('-s','--sheet_name', help='Название листа с таблицей', type=str, default='Sheet1')
-    parser.add_argument('-y','--foundation_year', help='Год основания винодельни', type=int, default=1920)
+        -y  Год основания винодельни, default=1920'''
+    )
+    parser.add_argument(
+        '-p',
+        '--table_path', 
+        help='Путь к xlsx файлу', 
+        type=str, 
+        default='wine.xlsx',
+    )
+    parser.add_argument(
+        '-s',
+        '--sheet_name', 
+        help='Название листа с таблицей', 
+        type=str, default='Sheet1',
+    )
+    parser.add_argument(
+        '-y',
+        '--foundation_year', 
+        help='Год основания винодельни', 
+        type=int, 
+        default=1920
+    )
     return parser
     
 
@@ -63,8 +81,12 @@ def main():
 
     years_passed = count_passed_years(foundation_year)
 
-    wines_table = pandas.read_excel(table_path, sheet_name=sheet_name, na_values=[
-                                    'N/A', 'NA'], keep_default_na=False)
+    wines_table = pandas.read_excel(
+        table_path, 
+        sheet_name=sheet_name, 
+        na_values=['N/A', 'NA'], 
+        keep_default_na=False,
+    )
     wines_data = wines_table.to_dict(orient='records')
     groupped_wines = group_wines(wines_data)
 
